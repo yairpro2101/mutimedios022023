@@ -1,0 +1,22 @@
+.pagina{
+    background-color: gray;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.img{
+    width: 700px;
+    height: 400px;
+}
+
+.img1{
+    height: 1200px;
+}
+
+.autos{
+    margin-top: 50px;
+    border-top: 2px solid black;
+}
+
+.titulo{
+    border-bottom: 3px solid black;
+}
