@@ -18,7 +18,55 @@
     
     </header>
   <main>
-    grupo
+    
+    <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#agregarGrupo">
+      Agregar Grupo
+    </button>
+
+    <!--Creacion de la tabla-->
+    <div class="table-responsive">
+      <table class="table table-striped table-hover table-borderless table-primary align-middle">
+          <thead class="table-light">
+              <caption>
+                  tabla grupos
+              </caption>
+              <tr>
+                  <th>id</th>
+                  <th>Nombre del grupo</th>
+                  <th>Opciones</th>
+              </tr>
+          </thead>
+          <tbody id="resultados" class="table-group-divider"></tbody>
+          <tfoot></tfoot>
+      </table>
+  </div>
+
+<!--modal-->
+<div class="modal" id="agregarGrupo" tabindex="-1">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ingrese la siguiente informacion</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formulario">
+            <div class="mb-3">
+                <label for="" class="form-label">Nombre del grupo</label>
+                <input type="text" name="nombreGrupo" id="nombreGrupo" class="form-control" placeholder="ingresar nombre del Grupo"
+                    aria-describedby="helpId">
+                <small id="helpId" class="text-muted">Campo obligatorio</small>
+            </div>
+            <div class="mb-3">
+                <button type="reset" class="btn btn-danger">Limpiar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
   </main>
   <footer>
     <!-- place footer here -->
@@ -32,6 +80,7 @@
     integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
   </script>
    <script src="menu.js"></script>
+   <script src="listaGrupo.js"></script>
 </body>
 
 </html>
