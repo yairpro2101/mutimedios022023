@@ -1,5 +1,5 @@
 .pagina{
-    background-color: gray;
+    background-color: darkslategray;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -14,9 +14,9 @@
 
 .autos{
     margin-top: 50px;
-    border-top: 2px solid black;
+    border-top: 2px solid white;
 }
 
 .titulo{
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid white;
 }
