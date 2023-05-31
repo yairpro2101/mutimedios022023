@@ -41,7 +41,7 @@
       </table>
   </div>
 
-<!--modal-->
+<!--modal agregar-->
 <div class="modal" id="agregarGrupo" tabindex="-1">
   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl" role="document">
     <div class="modal-content">
@@ -53,7 +53,33 @@
         <form id="formulario">
             <div class="mb-3">
                 <label for="" class="form-label">Nombre del grupo</label>
-                <input type="text" name="nombreGrupo" id="nombreGrupo" class="form-control" placeholder="ingresar nombre del Grupo"
+                <input type="text" name="nombre" id="nombreGrup" class="form-control" placeholder="ingresar nombre del Grupo"
+                    aria-describedby="helpId">
+                <small id="helpId" class="text-muted">Campo obligatorio</small>
+            </div>
+            <div class="mb-3">
+                <button type="reset" class="btn btn-danger">Limpiar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--modal editar-->
+<div class="modal" id="editarGrupo" tabindex="-1">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ingrese la siguiente informacion</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formulario">
+            <div class="mb-3">
+                <label for="" class="form-label">Nombre del grupo</label>
+                <input type="text" name="nombre" id="nombreGrupo" class="form-control" placeholder="ingresar el nuevo nombre del Grupo"
                     aria-describedby="helpId">
                 <small id="helpId" class="text-muted">Campo obligatorio</small>
             </div>

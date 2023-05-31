@@ -19,7 +19,77 @@
     <header id="headerClases"></header>
   </header>
   <main>
-    cursos
+    
+    <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#agregarCursos">
+      Agregar Cursos
+    </button>
+
+    <!--Creacion de la tabla-->
+    <div class="table-responsive">
+      <table class="table table-striped table-hover table-borderless table-primary align-middle">
+          <thead class="table-light">
+              <caption>
+                  tabla cursos
+              </caption>
+              <tr>
+                  <th>Id</th>
+                  <th>Nombre del curso</th>
+                  <th>Descripcion</th>
+                  <th>Tiempo</th>
+                  <th>Usuario</th>
+                  <th>Opciones</th>
+              </tr>
+          </thead>
+          <tbody id="resultados" class="table-group-divider"></tbody>
+          <tfoot></tfoot>
+      </table>
+  </div>
+
+  <!--modal-->
+<div class="modal" id="agregarCurso" tabindex="-1">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ingrese la siguiente informacion</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formulario">
+            <div class="mb-3">
+                <label for="" class="form-label">Nombre del grupo</label>
+                <input type="text" name="nombre" id="nombre" class="form-control" placeholder="ingresar nombre del curso"
+                    aria-describedby="helpId">
+                <small id="helpId" class="text-muted">Campo obligatorio</small>
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Descripcion</label>
+              <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="ingrese la descripcion"
+                  aria-describedby="helpId">
+              <small id="helpId" class="text-muted">Campo obligatorio</small>
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Tiempo</label>
+              <input type="text" name="tiempo" id="tiempo" class="form-control" placeholder="ingresar el tiempo"
+                  aria-describedby="helpId">
+              <small id="helpId" class="text-muted">Campo obligatorio</small>
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Usuario</label>
+              <input type="text" name="usuario" id="usuario" class="form-control" placeholder="ingresar el usuario"
+                  aria-describedby="helpId">
+              <small id="helpId" class="text-muted">Campo obligatorio</small>
+            </div>
+            <div class="mb-3">
+                <button type="reset" class="btn btn-danger">Limpiar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
   </main>
   <footer>
     <!-- place footer here -->
