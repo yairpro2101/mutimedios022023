@@ -1,18 +1,18 @@
 //declaracion de variables
 var contenidoTabla = document.querySelector("#resultados")
 const myModal = new bootstrap.Modal(document.getElementById("agregarGrupo"));
-const myModal2 = new bootstrap.Modal(document.getElementById("editarGrupo"));
 var formulario = document.getElementById("formulario");
 
 
 //actualizar los grupos
 formulario.addEventListener("submit", function (e) {
-  e.preventDefault();
-  alert("guardando");
+  e.preventDefault(); 
 
+  var id = document.getElementById("id").value;
   var nombre = document.getElementById("nombre").value;
 
   var datosenviar = {
+    id: id,
     nombre: nombre,
   };
   
@@ -59,7 +59,7 @@ function steTabla(datos) {
 
 //editar los grupos
 function editar(id, nombre) {
-    myModal2.show();
+    myModal.show();
 
     document.getElementById("id").value = id;
     document.getElementById("nombreGrupo").value = nombre;
@@ -67,7 +67,6 @@ function editar(id, nombre) {
 
 //eliminar los grupos
 function eliminar(id) {
-    alert("eliminar" + id);
     var datosenviar = {
       id: id,
 };

@@ -3,16 +3,12 @@ var contenidoTabla = document.querySelector("#resultados")
 const myModal = new bootstrap.Modal(document.getElementById("agregarProfe"));
 var formulario = document.getElementById("formulario");
 
-var agregarProfe = document.getElementById("agregarProfe");
-
-var id = document.getElementById("id");
 
 //actualizar los profes
 formulario.addEventListener("submit", function (e) {
   e.preventDefault();
-  alert("guardando");
 
-    var id = document.getElementById("id")
+    var id = document.getElementById("id").value;
     var cedula = document.getElementById("cedula").value;
     var correoelectronico = document.getElementById("correoelectronico").value;
     var telefono = document.getElementById("telefono").value;
@@ -121,7 +117,6 @@ function editar(id, cedula, correoelectronico, telefono, telefonocelular, fechan
 
 //eliminar los profes
 function eliminar(id) {
-    alert("eliminar " + id);
     var datosenviar = {
       id: id,
 };
@@ -134,6 +129,7 @@ function eliminar(id) {
       .then((datosrepuesta) => {
         //alert(datosrepuesta.data);
         console.log("Datos", datosrepuesta); 
+        window.location = "listaProfesor.html";
       })
       .catch(console.log); //errores
 }
@@ -143,8 +139,32 @@ agregarProfe.addEventListener("submit", function (e) {
         e.preventDefault();
         alert("guardando");
       
+      var correoelectronico = document.getElementById("correoelectronico").value;
+      var telefono = document.getElementById("telefono").value;
+      var telefonocelular = document.getElementById("telefonocelular").value;
+      var fechanacimiento = document.getElementById("fechanacimiento").value;
+      var sexo = document.getElementById("sexo").value;
+      var direccion = document.getElementById("direccion").value;
+      var nombre = document.getElementById("nombre").value;
+      var apellidopaterno = document.getElementById("apellidopaterno").value;
+      var apellidomaterno = document.getElementById("apellidomaterno").value;
+      var nacionalidad = document.getElementById("nacionalidad").value;
+      var idCarrera = document.getElementById("idCarrera").value;
+      var usuario = document.getElementById("usuario").value;
         var datosenviar = {
-            nombre: nombre,
+          cedula: cedula,
+          correoelectronico: correoelectronico,
+          telefono: telefono,
+          telefonocelular: telefonocelular,
+          fechanacimiento: fechanacimiento,
+          sexo: sexo,
+          direccion: direccion,
+          nombre: nombre,
+          apellidopaterno: apellidopaterno,
+          apellidomaterno: apellidomaterno,
+          nacionalidad: nacionalidad,
+          idCarrera: idCarrera,
+          usuario: usuario,
         };
         console.log(datosenviar);
         fetch("https://paginas-web-cr.com/ApiPHP/apis/InsertarGrupo.php", {
@@ -153,7 +173,6 @@ agregarProfe.addEventListener("submit", function (e) {
         }) //url de peticion de datos
           .then((respuesta) => respuesta.json()) //recibe los datos en formato json
           .then((datosrepuesta) => {
-            window.location = "listaGrupo.html";
             console.log("Datos", datosrepuesta);
           })
           .catch(console.log); //muestra errores
