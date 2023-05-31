@@ -34,13 +34,13 @@ var formulario = document.getElementById("formulario");
   fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaCurso.php") //url de peticion de datos
     .then((respuesta) => respuesta.json()) //recibe los datos en formato json
     .then((datosrepuesta) => {
-      steTabla(datosrepuesta.data);
+      setTabla(datosrepuesta.data);
       
     })
     .catch(console.log); //errores
   }
 
-  function steTabla(datos) {
+  function setTabla(datos) {
     console.log("Datos", datos);
     for (const valor of datos) {
       contenidoTabla.innerHTML += `
