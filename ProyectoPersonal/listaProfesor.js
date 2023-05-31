@@ -16,11 +16,11 @@ formulario.addEventListener("submit", function (e) {
     var fechanacimiento = document.getElementById("fechanacimiento").value;
     var sexo = document.getElementById("sexo").value;
     var direccion = document.getElementById("direccion").value;
-    var nombre = document.getElementById("nombre").value;
+    var nombre = document.getElementById("nombreProfe").value;
     var apellidopaterno = document.getElementById("apellidopaterno").value;
     var apellidomaterno = document.getElementById("apellidomaterno").value;
     var nacionalidad = document.getElementById("nacionalidad").value;
-    var idCarrera = document.getElementById("idCarrera").value;
+    var idCarreras = document.getElementById("idCarreras").value;
     var usuario = document.getElementById("usuario").value;
 
   var datosenviar = {
@@ -36,7 +36,7 @@ formulario.addEventListener("submit", function (e) {
     apellidopaterno: apellidopaterno,
     apellidomaterno: apellidomaterno,
     nacionalidad: nacionalidad,
-    idCarrera: idCarrera,
+    idCarreras: idCarreras,
     usuario: usuario,
   };
   
@@ -59,13 +59,13 @@ function cargarDatos() {
     fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaProfesores.php") //url de peticion de datos
       .then((respuesta) => respuesta.json()) //recibe los datos en formato json
       .then((datosrepuesta) => {
-        steTabla(datosrepuesta.data);
+        setTabla(datosrepuesta.data);
         
       })
       .catch(console.log); //errores
 }
 
-function steTabla(datos) {
+function setTabla(datos) {
     console.log("Datos", datos);
     for (const valor of datos) {
       contenidoTabla.innerHTML += `
@@ -82,14 +82,14 @@ function steTabla(datos) {
             <td>${valor.apellidopaterno}</td>
             <td>${valor.apellidomaterno}</td>
             <td>${valor.nacionalidad}</td>
-            <td>${valor.idCarrera}</td>
+            <td>${valor.idCarreras}</td>
             <td>${valor.usuario}</td>
                     <td>
                 <a name="" id="id" class="btn btn-danger" onclick="eliminar('${valor.id}')" role="button">Borrar</a>
                     ||
                 <a name="" id="nombre" class="btn btn-primary" onclick="editar('${valor.id}', '${valor.cedula}', '${valor.correoelectronico}', 
                 '${valor.telefono}', '${valor.telefonocelular}', '${valor.fechanacimiento}', '${valor.sexo}', '${valor.direccion}', '${valor.nombre}', 
-                '${valor.apellidopaterno}', '${valor.apellidomaterno}', '${valor.nacionalidad}', '${valor.idCarrera}', '${valor.usuario}') "role="button">Editar</a>
+                '${valor.apellidopaterno}', '${valor.apellidomaterno}', '${valor.nacionalidad}', '${valor.idCarreras}', '${valor.usuario}') "role="button">Editar</a>
             </td>
         </tr>`;
     }
@@ -97,7 +97,7 @@ function steTabla(datos) {
 
 //editar los profes
 function editar(id, cedula, correoelectronico, telefono, telefonocelular, fechanacimiento,
-    sexo, direccion, nombre, apellidopaterno, apellidomaterno, nacionalidad, idCarrera, usuario) {
+    sexo, direccion, nombre, apellidopaterno, apellidomaterno, nacionalidad, idCarreras, usuario) {
     myModal.show();
     document.getElementById("id").value = id;
     document.getElementById("cedula").value = cedula;
@@ -107,11 +107,11 @@ function editar(id, cedula, correoelectronico, telefono, telefonocelular, fechan
     document.getElementById("fechanacimiento").value = fechanacimiento;
     document.getElementById("sexo").value = sexo;
     document.getElementById("direccion").value = direccion;
-    document.getElementById("nombre").value = nombre;
+    document.getElementById("nombreProfe").value = nombre;
     document.getElementById("apellidopaterno").value = apellidopaterno;
     document.getElementById("apellidomaterno").value = apellidomaterno;
     document.getElementById("nacionalidad").value = nacionalidad;
-    document.getElementById("idCarrera").value = idCarrera;
+    document.getElementById("idCarreras").value = idCarreras;
     document.getElementById("usuario").value = usuario;
 }
 
@@ -120,7 +120,7 @@ function eliminar(id) {
     var datosenviar = {
       id: id,
 };
-    //console.log(datosenviar);
+
     fetch("https://paginas-web-cr.com/ApiPHP/apis/BorrarProfesores.php", {
       method: "POST",
       body: JSON.stringify(datosenviar),
@@ -135,23 +135,24 @@ function eliminar(id) {
 }
 
 //agregar profes
-agregarProfe.addEventListener("submit", function (e) {
+formulario.addEventListener("submit", function (e) {
         e.preventDefault();
-        alert("guardando");
       
+      var cedula = document.getElementById("cedula").value;
       var correoelectronico = document.getElementById("correoelectronico").value;
       var telefono = document.getElementById("telefono").value;
       var telefonocelular = document.getElementById("telefonocelular").value;
       var fechanacimiento = document.getElementById("fechanacimiento").value;
       var sexo = document.getElementById("sexo").value;
       var direccion = document.getElementById("direccion").value;
-      var nombre = document.getElementById("nombre").value;
+      var nombre = document.getElementById("nombreProfe").value;
       var apellidopaterno = document.getElementById("apellidopaterno").value;
       var apellidomaterno = document.getElementById("apellidomaterno").value;
       var nacionalidad = document.getElementById("nacionalidad").value;
-      var idCarrera = document.getElementById("idCarrera").value;
+      var idCarreras = document.getElementById("idCarreras").value;
       var usuario = document.getElementById("usuario").value;
-        var datosenviar = {
+        
+      var datosenviar = {
           cedula: cedula,
           correoelectronico: correoelectronico,
           telefono: telefono,
@@ -163,11 +164,12 @@ agregarProfe.addEventListener("submit", function (e) {
           apellidopaterno: apellidopaterno,
           apellidomaterno: apellidomaterno,
           nacionalidad: nacionalidad,
-          idCarrera: idCarrera,
+          idCarreras: idCarreras,
           usuario: usuario,
-        };
+        }
+        
         console.log(datosenviar);
-        fetch("https://paginas-web-cr.com/ApiPHP/apis/InsertarGrupo.php", {
+        fetch("https://paginas-web-cr.com/ApiPHP/apis/InsertarProfesores.php", {
           method: "POST",
           body: JSON.stringify(datosenviar),
         }) //url de peticion de datos
@@ -179,4 +181,4 @@ agregarProfe.addEventListener("submit", function (e) {
 });
 
 
-  cargarDatos();
+cargarDatos();
