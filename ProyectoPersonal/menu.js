@@ -30,7 +30,7 @@ function crearMenu(){
             `;  
 
     footerClases.innerHTML += `
-            <div class="container-fluid">
+        <div class="container-fluid">
         <div class="row p-3 bg-dark text-white text-center align-items-center">
           <div class="col-xs-12 col-md-6 col-lg-6"> 
             <h1>Gracias por pensar en nosotros</h1>
