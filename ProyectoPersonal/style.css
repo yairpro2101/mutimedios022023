@@ -20,3 +20,11 @@
 .titulo{
     border-bottom: 3px solid white;
 }
+
+.botonAgregar{
+    justify-content: center;
+}
+
+.tituloListas{
+    border-bottom: 2px solid white;
+}
