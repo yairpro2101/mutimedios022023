@@ -1,7 +1,10 @@
 //declaracion de variables
 var contenidoTabla = document.querySelector("#resultados")
-const myModal = new bootstrap.Modal(document.getElementById("agregarGrupo"));
-var formulario = document.getElementById("formulario");
+const myModal = new bootstrap.Modal(document.getElementById("agregarGrupos"));
+const myModalEdit = new bootstrap.Modal(document.getElementById("editarGrupo"));
+var formulario = document.getElementById("formularioG");
+var formularioEditar = document.getElementById("formularioEditar");
+
 
 
 //actualizar los grupos
@@ -10,6 +13,30 @@ formulario.addEventListener("submit", function (e) {
 
   var id = document.getElementById("id").value;
   var nombre = document.getElementById("nombre").value;
+
+  var datosenviar = {
+    id: id,
+    nombre: nombre,
+  };
+
+  fetch("https://paginas-web-cr.com/ApiPHP/apis/ActualizarGrupo.php", {
+    method: "POST",
+    body: JSON.stringify(datosenviar),
+  }) //url de peticion de datos
+    .then((respuesta) => respuesta.json()) //recibe los datos en formato json
+    .then((datosrepuesta) => {
+      window.location = "listaGrupo.html";
+      console.log("Datos", datosrepuesta);
+    })
+    .catch(console.log); //errores
+});
+
+//actualizar los grupos
+formularioEditar.addEventListener("submit", function (e) {
+  e.preventDefault(); 
+
+  var id = document.getElementById("id").value;
+  var nombre = document.getElementById("nombreGrupoEdit").value;
 
   var datosenviar = {
     id: id,
@@ -59,10 +86,10 @@ function setTabla(datos) {
 
 //editar los grupos
 function editar(id, nombre) {
-    myModal.show();
+    myModalEdit.show();
 
     document.getElementById("id").value = id;
-    document.getElementById("nombreGrupo").value = nombre;
+    document.getElementById("nombreGrupoEdit").value = nombre;
 }
 
 //eliminar los grupos
@@ -88,7 +115,7 @@ function eliminar(id) {
 formulario.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        var nombre = document.getElementById("nombreGrup").value;
+        var nombre = document.getElementById("nombreGrupo").value;
 
         var datosenviar = {
             nombre: nombre,

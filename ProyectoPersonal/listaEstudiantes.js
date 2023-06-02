@@ -1,7 +1,9 @@
 //declaracion de variables
 var contenidoTabla = document.querySelector("#resultados")
 const myModal = new bootstrap.Modal(document.getElementById("agregarEstudiante"));
+const myModalEditar = new bootstrap.Modal(document.getElementById("editarEstudiante"));
 var formulario = document.getElementById("formulario");
+var formularioEditar = document.getElementById("formularioEditar");
 
 
 //actualizar los estudiantes
@@ -21,7 +23,7 @@ formulario.addEventListener("submit", function (e) {
     var apellidomaterno = document.getElementById("apellidomaterno").value;
     var nacionalidad = document.getElementById("nacionalidad").value;
     var idCarreras = document.getElementById("idCarreras").value;
-    var usuario = document.getElementById("usuario").value;
+    var usuario = "Yair";
 
   var datosenviar = {
     id: id,
@@ -51,6 +53,55 @@ formulario.addEventListener("submit", function (e) {
     })
     .catch(console.log); //errores
 });
+
+//actualizar los estudiantes
+formularioEditar.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+    var id = document.getElementById("id").value;
+    var cedula = document.getElementById("cedulaEditar").value;
+    var correoelectronico = document.getElementById("correoelectronicoEditar").value;
+    var telefono = document.getElementById("telefonoEditar").value;
+    var telefonocelular = document.getElementById("telefonocelularEditar").value;
+    var fechanacimiento = document.getElementById("fechanacimientoEditar").value;
+    var sexo = document.getElementById("sexoEditar").value;
+    var direccion = document.getElementById("direccionEditar").value;
+    var nombre = document.getElementById("nombreEstudianteEditar").value;
+    var apellidopaterno = document.getElementById("apellidopaternoEditar").value;
+    var apellidomaterno = document.getElementById("apellidomaternoEditar").value;
+    var nacionalidad = document.getElementById("nacionalidadEditar").value;
+    var idCarreras = document.getElementById("idCarrerasEditar").value;
+    var usuario = "Yair";
+
+  var datosenviar = {
+    id: id,
+    cedula: cedula,
+    correoelectronico: correoelectronico,
+    telefono: telefono,
+    telefonocelular: telefonocelular,
+    fechanacimiento: fechanacimiento,
+    sexo: sexo,
+    direccion: direccion,
+    nombre: nombre,
+    apellidopaterno: apellidopaterno,
+    apellidomaterno: apellidomaterno,
+    nacionalidad: nacionalidad,
+    idCarreras: idCarreras,
+    usuario: usuario,
+  };
+
+  fetch("https://paginas-web-cr.com/ApiPHP/apis/ActualizarEstudiantes.php", {
+    method: "POST",
+    body: JSON.stringify(datosenviar),
+  }) //url de peticion de datos
+    .then((respuesta) => respuesta.json()) //recibe los datos en formato json
+    .then((datosrepuesta) => {
+      window.location = "listaEstudiantes.html";
+      console.log("Datos", datosrepuesta);
+    })
+    .catch(console.log); //errores
+});
+
 
 //cargar los datos
 function cargarDatos() {
@@ -95,22 +146,21 @@ function setTabla(datos) {
 
 //editar los estudiante
 function editar(id, cedula, correoelectronico, telefono, telefonocelular, fechanacimiento,
-  sexo, direccion, nombre, apellidopaterno, apellidomaterno, nacionalidad, idCarreras, usuario) {
-  myModal.show();
+  sexo, direccion, nombre, apellidopaterno, apellidomaterno, nacionalidad, idCarreras) {
+  myModalEditar.show();
   document.getElementById("id").value = id;
-  document.getElementById("cedula").value = cedula;
-  document.getElementById("correoelectronico").value = correoelectronico;
-  document.getElementById("telefono").value = telefono;
-  document.getElementById("telefonocelular").value = telefonocelular;
-  document.getElementById("fechanacimiento").value = fechanacimiento;
-  document.getElementById("sexo").value = sexo;
-  document.getElementById("direccion").value = direccion;
-  document.getElementById("nombreProfe").value = nombre;
-  document.getElementById("apellidopaterno").value = apellidopaterno;
-  document.getElementById("apellidomaterno").value = apellidomaterno;
-  document.getElementById("nacionalidad").value = nacionalidad;
-  document.getElementById("idCarreras").value = idCarreras;
-  document.getElementById("usuario").value = usuario;
+  document.getElementById("cedulaEditar").value = cedula;
+  document.getElementById("correoelectronicoEditar").value = correoelectronico;
+  document.getElementById("telefonoEditar").value = telefono;
+  document.getElementById("telefonocelularEditar").value = telefonocelular;
+  document.getElementById("fechanacimientoEditar").value = fechanacimiento;
+  document.getElementById("sexoEditar").value = sexo;
+  document.getElementById("direccionEditar").value = direccion;
+  document.getElementById("nombreEstudianteEditar").value = nombre;
+  document.getElementById("apellidopaternoEditar").value = apellidopaterno;
+  document.getElementById("apellidomaternoEditar").value = apellidomaterno;
+  document.getElementById("nacionalidadEditar").value = nacionalidad;
+  document.getElementById("idCarrerasEditar").value = idCarreras;
 }
 
 //eliminar los profes
@@ -148,7 +198,7 @@ var apellidopaterno = document.getElementById("apellidopaterno").value;
 var apellidomaterno = document.getElementById("apellidomaterno").value;
 var nacionalidad = document.getElementById("nacionalidad").value;
 var idCarreras = document.getElementById("idCarreras").value;
-var usuario = document.getElementById("usuario").value;
+var usuario = "Yair";
   
 var datosenviar = {
     cedula: cedula,

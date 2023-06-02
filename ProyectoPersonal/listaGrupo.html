@@ -31,7 +31,7 @@
     <div class="container"> 
       <div class="row">
         <div class="col text-center mb-5 mt-3">
-          <button type="button" class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#agregarGrupo">
+          <button type="button" class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#agregarGrupos">
             Agregar Grupo
           </button>
         </div>	
@@ -54,8 +54,8 @@
       </table>
   </div>
 
-<!--modal agregar-->
-<div class="modal" id="agregarGrupo" tabindex="-1">
+<!--modal-->
+<div class="modal" id="agregarGrupos" tabindex="-1">
   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -63,10 +63,10 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form id="formulario">
+        <form id="formularioG">
             <div class="mb-3">
                 <label for="" class="form-label">Nombre del grupo</label>
-                <input type="text" name="nombre" id="nombreGrup" class="form-control" placeholder="ingresar nombre del Grupo"
+                <input type="text" name="nombreGrupo" id="nombreGrupo" class="form-control" placeholder="ingresar el nuevo nombre del Grupo"
                     aria-describedby="helpId">
                 <small id="helpId" class="text-muted">Campo obligatorio</small>
             </div>
@@ -89,10 +89,10 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form id="formulario2">
+        <form id="formularioEditar">
             <div class="mb-3">
                 <label for="" class="form-label">Nombre del grupo</label>
-                <input type="text" name="nombreGrupo" id="nombreGrupo" class="form-control" placeholder="ingresar el nuevo nombre del Grupo"
+                <input type="text" name="nombre" id="nombreGrupoEdit" class="form-control" placeholder="ingresar el nuevo nombre del Grupo"
                     aria-describedby="helpId">
                 <small id="helpId" class="text-muted">Campo obligatorio</small>
             </div>
